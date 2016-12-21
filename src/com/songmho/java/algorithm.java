@@ -10,6 +10,8 @@ public class Algorithm {
     List<RawData> rawDatas = new ArrayList<>();
     List<Data> datas = new ArrayList<>();
     List<Data> resultDatas =new ArrayList<>();
+    
+    double variance;
 
     public Algorithm(List<RawData> rawDatas){
         this.rawDatas = rawDatas;
@@ -43,5 +45,8 @@ public class Algorithm {
     public double getRate(){
         return RawData.getCurCountSum() / RawData.getWholeCountSum();
     }
-
+    
+    public double getVariance() {
+    	return RawData.variance();
+    }
 }

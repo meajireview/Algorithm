@@ -94,20 +94,22 @@ public class RawData {
     	return curCount / wholeCurCount;
     }
     
+    
     public double AvgCount() {
-    	return  / wholeCount;
+    	return  contentCount / wholeCount;
     }
+    
     public void AvgCountSum() {
-    	this.AvgCount = this.AvgCount+AvgCount;
+    	this.AvgCount = this.AvgCount + AvgCount;
     }
     
     public double variance() {
-    	return AvgCurCountSum / contentCount;
+    	return AvgCountSum / contentCount;
     }
     
     public double sigma() {
     	return Math.pow(variance(), 2);
-    	
     }
+    
    
 }
