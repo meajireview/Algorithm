@@ -16,13 +16,6 @@ public class RawData {
         this.curCount = 1;
     }
 
-    public RawData(String content, int wholeCount, int curCount){
-        this.content = content;
-        this.wholeCount = wholeCount;
-        this.curCount = curCount;
-        this.wholeCountSum += wholeCount;
-        this.curCountSum += curCount;
-    }
     public int getCurCount() {
         return curCount;
     }

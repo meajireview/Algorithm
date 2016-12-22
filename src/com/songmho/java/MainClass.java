@@ -14,9 +14,6 @@ public class MainClass {
     public static void main(String[] args) {
         List<String> dummy = new ArrayList<>();
         List<RawData> rawDatas = new ArrayList<>();
-        List<Data> datas = new ArrayList<>();
-        List<Data> resultDatas =new ArrayList<>();
-        double differRate;
 
         //데이터 입력
         try {
@@ -94,25 +91,8 @@ public class MainClass {
         System.out.println("-------------------------------");
         System.out.println();
 
-        //비율 설정
-        differRate = RawData.getCurCountSum() / RawData.getWholeCountSum();
-
-        for(RawData d : rawDatas) {
-            double a = d.getWholeCount()*differRate;
-            datas.add(new Data(d.getContent(),a));
-        }
-
-        for(int i = 0; i<rawDatas.size();i++) {
-            double a = (0.7*rawDatas.get(i).getCurCount())+(0.3*datas.get(i).getCount());
-
-            resultDatas.add(new Data(rawDatas.get(i).getContent(),a));
-        }
-
-        QuickSort quickSort = new QuickSort();
-        quickSort.sort(resultDatas,0,resultDatas.size()-1);
-        for(int i=0; i<resultDatas.size(); i++){
-            System.out.println("data["+resultDatas.get(i).getContent()+"] : "+resultDatas.get(i).getCount());
-        }
+        Algorithm algorithm = new Algorithm(rawDatas);
+        List<Data> resultDatas = algorithm.getResultDatas();
 
         System.out.println();
         System.out.println("-------------------------------");
